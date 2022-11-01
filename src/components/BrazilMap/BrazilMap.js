@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect } from "react";
+import brStates from '../../brStates.json';
 import Rondonia from "../BrazilStates/Rondonia";
 import Acre from "../BrazilStates/Acre";
 import Amazonas from "../BrazilStates/Amazonas";
@@ -28,8 +30,80 @@ import SantaCatarina from "../BrazilStates/SantaCatarina";
 import Paraiba from "../BrazilStates/Paraiba";
 import "./styled.css";
 
-export default function BrazilMap(){
-    const alerta = () => {alert("Clicou em Rondônia!")}
+export default function BrazilMap(props){
+    useEffect(() => {
+      async function paintMap() {
+        //States ids (for each query)
+        let queryIds1 = "";
+        let queryIds2 = "";
+
+        //Each group of states
+        let group1 = brStates.slice(0, brStates.length / 2);
+        let group2 = brStates.slice(brStates.length / 2);
+
+        //Filling the ids in the groups
+        group1.map((element) => {
+          queryIds1 += `${String(element["id"])},`;
+        });
+        group2.map((element) => {
+          queryIds2 += `${String(element["id"])},`;
+        });
+
+        //Adjust
+        queryIds1 = queryIds1.slice(0, -1);
+        queryIds2 = queryIds2.slice(0, -1);
+
+        //URL for each query
+        const url1 = `http://api.openweathermap.org/data/2.5/group?id=${queryIds1}&units;=metric&appid=fe772bb5ff9d8486d890ff783f7fcf86`;
+        const url2 = `http://api.openweathermap.org/data/2.5/group?id=${queryIds2}&units;=metric&appid=fe772bb5ff9d8486d890ff783f7fcf86`;
+
+        //Call Open Weather API
+        let data1;
+        let data2;
+        try {
+          let response1 = await fetch(url1);
+          data1 = await response1.json();
+          let response2 = await fetch(url2);
+          data2 = await response2.json();
+        } catch {
+          console.log("Erro ao colorir mapa");
+        }
+      
+        const fullData = data1["list"].concat(data2["list"]);
+
+        fullData.map((element, index) => {
+          let state = brStates[index]["name"];
+          let temperature = KelvinToCelsius(element["main"]["temp"]);
+          // let state = document.getElementById(key);
+          // idStates[index]["temperature"] = `${Math.floor(temperature)}ºC`;
+          // idStates[index]["condition"] = element["weather"][0];
+          // idStates[index]["sys"] = element["sys"];
+          // console.log(idStates[index]["capital"], temperature);
+          // console.log(temperature)
+          if (temperature > 35) {
+            // props.colorClasses[state] = "very-hot";
+            // props.setColorClasses(props.colorClasses);
+          } else if (temperature <= 35 && temperature > 25) {
+            // props.colorClasses[state] = "warm";
+            props.setColorClasses({"Rondônia": "warm"});
+          } else if (temperature <= 25 && temperature > 15) {
+            // props.colorClasses[state] = "regular";
+            // props.setColorClasses(props.colorClasses);
+          } else if (temperature <= 15 && temperature > 5) {
+            // props.colorClasses[state] = "cold";
+            // props.setColorClasses(props.colorClasses);
+          } else {
+            // props.colorClasses[state] = "very-cold";
+            // props.setColorClasses(props.colorClasses);
+          }
+        })
+        console.log(props.colorClasses);
+      }
+      paintMap();
+    }, [])
+
+
+    const KelvinToCelsius = (temperature) => temperature - 273;
 
     return (
       <svg
@@ -46,7 +120,7 @@ export default function BrazilMap(){
       // {...props}
     >
       <g id="Estados">
-        <Rondonia alerta={alerta}/>
+        <Rondonia colorClass={props.colorClasses["Rondônia"]}/>
         <Acre />
         <Amazonas />
         <Roraima />

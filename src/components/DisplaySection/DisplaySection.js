@@ -3,12 +3,15 @@ import "../BrazilMap/BrazilMap.js";
 import BrazilMap from "../BrazilMap/BrazilMap.js";
 import './styled.css'
 
-export default function DisplaySection(){
+export default function DisplaySection(props){
     return (
         <section id="display-section">
             <div id="brazil-map-container">
                 <div id="map-label">Clique em um estado</div>
-                <BrazilMap width={150} height={150}/>
+                <BrazilMap
+                    colorClasses={props.colorClasses}
+                    setColorClasses={props.setColorClasses}
+                />
             </div>
             <div id="capital-info-container">
                 <div id="bg"></div>

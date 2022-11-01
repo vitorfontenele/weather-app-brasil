@@ -6,3 +6,38 @@
 .red{
     fill: red !important;
 }
+
+svg{
+    max-width: 90%;
+    height: auto;
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.25));
+}
+
+.state:hover{
+    fill: rgb(141, 75, 125) !important;
+}
+
+/*
+.state{
+    /* fill:blueviolet !important; 
+} */
+
+.very-cold{
+    fill:#10375A !important;
+}
+
+.cold{
+    fill:#007B7B !important;
+}
+
+.regular{
+    fill:#74A892 !important;
+}
+
+.warm{
+    fill:#E5C185 !important;
+}
+
+.very-hot{
+    fill:#C7522A !important;
+}

@@ -63,6 +63,58 @@
     color: white;
 }
 
+#day{
+    font-size: clamp(14px, 1.1vw, 16px );
+}
+
+#time{
+    font-size: clamp(14px, 1.1vw, 16px );
+}
+
+#state-capital{
+    font-size: clamp(14px, 3vw, 44px);
+}
+
+#state-abbr{
+    font-size: clamp(14px, 1.7vw, 24px);
+    margin-bottom: 4px;
+}
+
+#location-group{
+    text-align: center;
+}
+
+#weather-group{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 10px 50px 5px 50px
+}
+
+#temperature{
+    font-size: clamp(14px, 5.3vw, 76px);
+}
+
+#condition{
+    font-size: clamp(14px, 1.9vw, 28px);
+}
+
+#image-condition{
+    width: clamp(50px, 6.9vw, 100px);
+    height: auto;
+}
+
+#more-cities-anchor{
+    text-decoration: none;
+    background-color: white;
+    font-size: clamp(14px, 1.9vw, 28px);
+    padding: clamp(6px, .8vw, 12px) clamp(16px, 2.2vw, 32px);
+    border-radius: 60px;
+    color: black;
+    text-shadow: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 @media (min-width: 1440px){
     #display-section{
         display: flex;
