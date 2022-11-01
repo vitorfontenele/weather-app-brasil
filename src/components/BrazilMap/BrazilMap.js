@@ -70,6 +70,7 @@ export default function BrazilMap(props){
         }
       
         const fullData = data1["list"].concat(data2["list"]);
+        const classes = {};
 
         fullData.map((element, index) => {
           let state = brStates[index]["name"];
@@ -81,23 +82,18 @@ export default function BrazilMap(props){
           // console.log(idStates[index]["capital"], temperature);
           // console.log(temperature)
           if (temperature > 35) {
-            // props.colorClasses[state] = "very-hot";
-            // props.setColorClasses(props.colorClasses);
+            classes[state] = "very-hot"
           } else if (temperature <= 35 && temperature > 25) {
-            // props.colorClasses[state] = "warm";
-            props.setColorClasses({"Rondônia": "warm"});
+            classes[state] = "warm";
           } else if (temperature <= 25 && temperature > 15) {
-            // props.colorClasses[state] = "regular";
-            // props.setColorClasses(props.colorClasses);
+            classes[state] = "regular"
           } else if (temperature <= 15 && temperature > 5) {
-            // props.colorClasses[state] = "cold";
-            // props.setColorClasses(props.colorClasses);
+            classes[state] = "cold";
           } else {
-            // props.colorClasses[state] = "very-cold";
-            // props.setColorClasses(props.colorClasses);
+            classes[state] = "very-cold"
           }
         })
-        console.log(props.colorClasses);
+        props.setColorClasses({...classes});
       }
       paintMap();
     }, [])

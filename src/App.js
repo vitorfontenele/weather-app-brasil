@@ -68,7 +68,7 @@ function App() {
           return <option value={city.name}>{city.name}</option>
         })}
       </select>
-      {renderColors()}
+      {/* {renderColors()} */}
       <br/>
     </div>
   );
