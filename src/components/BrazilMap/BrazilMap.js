@@ -64,9 +64,8 @@ export default function BrazilMap(props){
           }
         })
         props.setStatesInfo([...generalInfo]);
+        props.setBrMainState({...props.statesInfo[22]});
       }
-      console.log(props.statesInfo);
-      //props.setBrMainState(props.statesInfo[0]);
       paintMap();
     }, [])
 

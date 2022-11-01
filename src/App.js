@@ -12,6 +12,8 @@ function App() {
                                                   "abbr": "SP"});
   const [brState, setBrState] = useState("São Paulo");
   const [brCity, setBrCity] = useState("");
+  const [day, setDay] = useState("");
+  const [hour, setHour] = useState("");
 
   const handleBrState = (event) => {
     setBrState(event.target.value);
@@ -55,6 +57,10 @@ function App() {
         setStatesInfo={setStatesInfo}
         brMainState={brMainState}
         setBrMainState={setBrMainState}
+        hour={hour}
+        setHour={setHour}
+        day={day}
+        setDay={setDay}
       />
       <select onChange={handleBrState} value={brState}>
         {brStates.map(state => {
