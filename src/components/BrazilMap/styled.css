@@ -13,10 +13,6 @@ svg{
     filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.25));
 }
 
-.state:hover{
-    fill: rgb(141, 75, 125) !important;
-}
-
 /*
 .state{
     /* fill:blueviolet !important; 
@@ -31,7 +27,7 @@ svg{
 }
 
 .regular{
-    fill:#74A892 !important;
+    fill:#74A892;
 }
 
 .warm{
@@ -41,3 +37,9 @@ svg{
 .very-hot{
     fill:#C7522A !important;
 }
+
+.state:hover{
+    fill: rgb(141, 75, 125) !important;
+}
+
+

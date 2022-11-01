@@ -1,34 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
-import brStates from '../../brStates.json';
-import Rondonia from "../BrazilStates/Rondonia";
-import Acre from "../BrazilStates/Acre";
-import Amazonas from "../BrazilStates/Amazonas";
-import Roraima from "../BrazilStates/Roraima";
-import Amapa from "../BrazilStates/Amapa";
-import Tocantins from "../BrazilStates/Tocantins";
-import MatoGrosso from "../BrazilStates/MatoGrosso";
-import Goias from "../BrazilStates/Goias";
-import MatoGrossoDoSul from "../BrazilStates/MatoGrossoDoSul";
-import MinasGerais from "../BrazilStates/MinasGerais";
-import Parana from "../BrazilStates/Parana";
-import RioGrandeDoSul from "../BrazilStates/RioGrandeDoSul";
-import Bahia from "../BrazilStates/Bahia";
-import Piaui from "../BrazilStates/Piaui";
-import Ceara from "../BrazilStates/Ceara";
-import RioGrandeDoNorte from "../BrazilStates/RioGrandeDoNorte";
-import Alagoas from "../BrazilStates/Alagoas";
-import Sergipe from "../BrazilStates/Sergipe";
-import DistritoFederal from "../BrazilStates/DistritoFederal";
-import Pernambuco from "../BrazilStates/Pernambuco";
-import Maranhao from "../BrazilStates/Maranhao";
-import Para from "../BrazilStates/Para";
-import SaoPaulo from "../BrazilStates/SaoPaulo";
-import RioDeJaneiro from "../BrazilStates/RioDeJaneiro";
-import EspiritoSanto from "../BrazilStates/EspiritoSanto";
-import SantaCatarina from "../BrazilStates/SantaCatarina";
-import Paraiba from "../BrazilStates/Paraiba";
 import "./styled.css";
+import BrState from "../BrazilStates/BrState";
+import statepaths from "../BrazilStates/statepaths.json";
 
 export default function BrazilMap(props){
     useEffect(() => {
@@ -38,8 +12,8 @@ export default function BrazilMap(props){
         let queryIds2 = "";
 
         //Each group of states
-        let group1 = brStates.slice(0, brStates.length / 2);
-        let group2 = brStates.slice(brStates.length / 2);
+        let group1 = props.statesInfo.slice(0, props.statesInfo.length / 2);
+        let group2 = props.statesInfo.slice(props.statesInfo.length / 2);
 
         //Filling the ids in the groups
         group1.map((element) => {
@@ -70,31 +44,29 @@ export default function BrazilMap(props){
         }
       
         const fullData = data1["list"].concat(data2["list"]);
-        const classes = {};
+        const generalInfo = [...props.statesInfo];
 
         fullData.map((element, index) => {
-          let state = brStates[index]["name"];
           let temperature = KelvinToCelsius(element["main"]["temp"]);
-          // let state = document.getElementById(key);
-          // idStates[index]["temperature"] = `${Math.floor(temperature)}ºC`;
-          // idStates[index]["condition"] = element["weather"][0];
-          // idStates[index]["sys"] = element["sys"];
-          // console.log(idStates[index]["capital"], temperature);
-          // console.log(temperature)
+          generalInfo[index]["temperature"] = Math.round(temperature);
+          generalInfo[index]["condition"] = element["weather"][0];
+          // generalInfo[index]["sys"] = element["sys"];
           if (temperature > 35) {
-            classes[state] = "very-hot"
+            generalInfo[index]["colorClass"] = "very-hot"
           } else if (temperature <= 35 && temperature > 25) {
-            classes[state] = "warm";
+            generalInfo[index]["colorClass"] = "warm"
           } else if (temperature <= 25 && temperature > 15) {
-            classes[state] = "regular"
+            generalInfo[index]["colorClass"] = "regular"
           } else if (temperature <= 15 && temperature > 5) {
-            classes[state] = "cold";
+            generalInfo[index]["colorClass"] = "cold"
           } else {
-            classes[state] = "very-cold"
+            generalInfo[index]["colorClass"] = "very-cold"
           }
         })
-        props.setColorClasses({...classes});
+        props.setStatesInfo([...generalInfo]);
       }
+      console.log(props.statesInfo);
+      //props.setBrMainState(props.statesInfo[0]);
       paintMap();
     }, [])
 
@@ -116,33 +88,17 @@ export default function BrazilMap(props){
       // {...props}
     >
       <g id="Estados">
-        <Rondonia colorClass={props.colorClasses["Rondônia"]}/>
-        <Acre />
-        <Amazonas />
-        <Roraima />
-        <Amapa />
-        <Tocantins />
-        <MatoGrosso />
-        <Goias />
-        <MatoGrossoDoSul />
-        <MinasGerais />
-        <Parana />
-        <RioGrandeDoSul />
-        <Bahia />
-        <Piaui />
-        <Ceara />
-        <RioGrandeDoNorte />
-        <Alagoas />
-        <Sergipe />
-        <DistritoFederal />
-        <Pernambuco />
-        <Maranhao />
-        <Para />
-        <SaoPaulo />
-        <RioDeJaneiro />
-        <EspiritoSanto />
-        <SantaCatarina />
-        <Paraiba />
+        {props.statesInfo.map((state) => {
+          return <BrState 
+                    id={state["pathId"]} 
+                    classes={`state str0 ${state["colorClass"]}`}
+                    d={statepaths[state["name"]]}
+                    stateInfo={{...state}}
+                    // index={index}
+                    brMainState={props.brMainState}
+                    setBrMainState={props.setBrMainState}
+                  />
+        })}
       </g>
     </svg>
   )

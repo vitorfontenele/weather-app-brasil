@@ -5,25 +5,23 @@ import brCities from './brCities.json';
 import DisplaySection from './components/DisplaySection/DisplaySection.js';
 
 function App() {
-  const [colorClasses, setColorClasses] = useState({});
-  const [brMainState, setBrMainState] = useState("São Paulo");
+  const [statesInfo, setStatesInfo] = useState(brStates);
+  const [brMainState, setBrMainState] = useState({"temperature": "20",
+                                                  "condition": {"main": "Clear"},
+                                                  "capital": "São Paulo",
+                                                  "abbr": "SP"});
   const [brState, setBrState] = useState("São Paulo");
   const [brCity, setBrCity] = useState("");
 
   const handleBrState = (event) => {
     setBrState(event.target.value);
-    console.log(brState);
+    //console.log(brState);
+    console.log(statesInfo);
   }
 
   const handleBrCity = (event) => {
     setBrCity(event.target.value);
     console.log(brCity);
-  }
-
-  const renderColors = () => {
-    for (let state in colorClasses){
-      return <p>{colorClasses[state]}</p>
-    }
   }
 
   const renderCities = () => {
@@ -53,8 +51,10 @@ function App() {
         return <p>{city["name"]}</p>
       })} */}
       <DisplaySection
-        colorClasses={colorClasses}
-        setColorClasses={setColorClasses}
+        statesInfo={statesInfo}
+        setStatesInfo={setStatesInfo}
+        brMainState={brMainState}
+        setBrMainState={setBrMainState}
       />
       <select onChange={handleBrState} value={brState}>
         {brStates.map(state => {
@@ -68,7 +68,6 @@ function App() {
           return <option value={city.name}>{city.name}</option>
         })}
       </select>
-      {/* {renderColors()} */}
       <br/>
     </div>
   );
