@@ -28,7 +28,7 @@
 
 #bg{
     position: absolute;
-    background-image: url("../../assets/Clouds-day.png");
+    /* background-image: url("../../assets/Clouds-day.png"); */
     background-size: cover;
     filter: saturate(1.3);
     width: 100%;

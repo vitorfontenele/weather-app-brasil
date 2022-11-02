@@ -82,50 +82,8 @@ export default function DisplaySection(props){
         updateHour();
     }, [props.hour])
 
-    const updateHour = () => {
-        let weekDays = {
-          0: "Domingo",
-          1: "Segunda-feira",
-          2: "Terça-feira",
-          3: "Quarta-feira",
-          4: "Quinta-feira",
-          5: "Sexta-feira",
-          6: "Sábado",
-        };
-        let months = {
-          0: "Janeiro",
-          1: "Fevereiro",
-          2: "Março",
-          3: "Abril",
-          4: "Maio",
-          5: "Junho",
-          6: "Julho",
-          7: "Agosto",
-          8: "Setembro",
-          9: "Outubro",
-          10: "Novembro",
-          11: "Dezembro",
-        };
-      
-        let now = new Date(Date.now());
-        let dayOfWeek = weekDays[now.getDay()];
-        let dayOfMonth = now.getDate();
-        let month = months[now.getMonth()];
-        
-
-        // setInterval(() => {
-        //   now = new Date(Date.now());
-        //   let hours =
-        //     now.getHours() < 10
-        //       ? "0" + String(now.getHours())
-        //       : String(now.getHours());
-        //   let minutes =
-        //     now.getMinutes() < 10
-        //       ? "0" + String(now.getMinutes())
-        //       : String(now.getMinutes());
-        //   document.getElementById("time").textContent = `${hours}h${minutes}`;
-        // }, 1000);
-      };
+    //Icone de tempo
+    const pic = `https://openweathermap.org/img/wn/${props.brMainState["condition"]["icon"]}@2x.png`;
 
     return (
         <section id="display-section">
@@ -139,7 +97,7 @@ export default function DisplaySection(props){
                 />
             </div>
             <div id="capital-info-container">
-                <div id="bg"></div>
+                <div id="bg" style={{backgroundImage: props.brMainState["bgImageLink"]}}></div>
                 <div id="time" className="content">{props.hour}</div>
                     <div id="location-group" className="content">
                     <div id="state-capital">{props.brMainState["capital"]}</div>
@@ -149,7 +107,7 @@ export default function DisplaySection(props){
                 <div id="weather-group" className="content">
                     <div id="temperature">{`${props.brMainState["temperature"]}ºC`}</div> 
                     <div id="condition">{conditionToPT(props.brMainState["condition"]["main"])}</div>
-                    <img id="image-condition" src="https://openweathermap.org/img/wn/02d@2x.png" alt="" />
+                    <img id="image-condition" src={pic} alt="Ícone de tempo" />
                 </div>
                 <a id="more-cities-anchor" href="" className="content">{`Mais cidades em ${props.brMainState["abbr"]}`}</a>
              </div>
