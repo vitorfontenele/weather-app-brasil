@@ -5,6 +5,33 @@ import BrState from "../BrazilStates/BrState";
 import statepaths from "../BrazilStates/statepaths.json";
 
 export default function BrazilMap(props){
+    const setBgImageLink = (conditionObject) => {
+      // let bgImageLink = "";
+      const atmosphereConditions = ["Mist", "Smoke", "Haze", "Dust", "Fog", "Sand", "Ash", "Squall", "Tornado"];
+      const mainCondition = conditionObject["main"];
+      const icon = conditionObject["icon"];
+
+      if (mainCondition === "Clear") {
+          if (icon.includes("d")) {
+              return `/assets/${mainCondition}-day.png`;
+          } else {
+              return `/assets/${mainCondition}-night.png`;
+          }
+      } else if (mainCondition === "Clouds") {
+          if (icon.includes("d")) {
+              return `/assets/${mainCondition}-day.png`;
+          } else {
+              return `/assets/${mainCondition}-night.png`;
+          }
+      } else if (atmosphereConditions.includes(mainCondition)) {
+          return `/assets/Atmosphere.png`;
+      } else {
+          return `/assets/${mainCondition}.png`;
+      }
+
+      // props.setBrMainState({...props.stateInfo, bgImageLink});
+    }
+
     useEffect(() => {
       async function paintMap() {
         //States ids (for each query)
@@ -50,6 +77,8 @@ export default function BrazilMap(props){
           let temperature = KelvinToCelsius(element["main"]["temp"]);
           generalInfo[index]["temperature"] = Math.round(temperature);
           generalInfo[index]["condition"] = element["weather"][0];
+          generalInfo[index]["bgImageLink"] = setBgImageLink(element["weather"][0]);
+          //console.log(element["weather"][0])
           // generalInfo[index]["sys"] = element["sys"];
           if (temperature > 35) {
             generalInfo[index]["colorClass"] = "very-hot"

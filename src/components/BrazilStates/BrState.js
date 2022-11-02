@@ -2,27 +2,8 @@ import React from "react";
 
 export default function BrState(props){
     const handleClick = () => {
-        let bgImageLink = "";
-        const mainCondition = props.stateInfo["condition"]["main"];
-        const icon = props.stateInfo["condition"]["icon"];
-
-        if (mainCondition === "Clear") {
-            if (icon.includes("d")) {
-                bgImageLink = `/assets/${mainCondition}-day.png`;
-            } else {
-                bgImageLink = `/assets/${mainCondition}-night.png`;
-            }
-        } else if (mainCondition === "Clouds") {
-            if (icon.includes("d")) {
-                bgImageLink = `/assets/${mainCondition}-day.png`;
-            } else {
-                bgImageLink = `/assets/${mainCondition}-night.png`;
-            }
-        } else {
-            bgImageLink = `/assets/${mainCondition}.png`;
-        }
-
-        props.setBrMainState({...props.stateInfo, bgImageLink});
+        props.setBrMainState({...props.stateInfo});
+        console.log(props.brMainState)
     }
 
     return(
