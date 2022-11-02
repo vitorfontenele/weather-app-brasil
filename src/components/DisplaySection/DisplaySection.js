@@ -97,7 +97,8 @@ export default function DisplaySection(props){
                 />
             </div>
             <div id="capital-info-container">
-                <div id="bg" style={{backgroundImage: props.brMainState["bgImageLink"]}}></div>
+                <div id="bg" style={{backgroundImage: `url(${props.brMainState["bgImageLink"]})`}}></div>
+                {/* <img src={"/assets/Rain.png"} alt='Apagar!'/> */}
                 <div id="time" className="content">{props.hour}</div>
                     <div id="location-group" className="content">
                     <div id="state-capital">{props.brMainState["capital"]}</div>

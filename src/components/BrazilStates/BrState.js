@@ -8,18 +8,18 @@ export default function BrState(props){
 
         if (mainCondition === "Clear") {
             if (icon.includes("d")) {
-                bgImageLink = `url('../src/assets/${mainCondition}-day.png')`;
+                bgImageLink = `/assets/${mainCondition}-day.png`;
             } else {
-                bgImageLink = `url('../src/assets/${mainCondition}-night.png')`;
+                bgImageLink = `/assets/${mainCondition}-night.png`;
             }
         } else if (mainCondition === "Clouds") {
             if (icon.includes("d")) {
-                bgImageLink = `url('../src/assets/${mainCondition}-day.png')`;
+                bgImageLink = `/assets/${mainCondition}-day.png`;
             } else {
-                bgImageLink = `url('../src/assets/${mainCondition}-night.png')`;
+                bgImageLink = `/assets/${mainCondition}-night.png`;
             }
         } else {
-            bgImageLink = `url('../src/assets/${mainCondition}.png')`;
+            bgImageLink = `/assets/${mainCondition}.png`;
         }
 
         props.setBrMainState({...props.stateInfo, bgImageLink});
