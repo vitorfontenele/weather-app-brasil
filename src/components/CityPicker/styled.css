@@ -1,0 +1,34 @@
+#city-picker-section{
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(14, 8, 86, 0.5);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#city-picker-title{
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+}
+
+#city-picker-content{
+    background-color:rgba(14, 8, 86, 0.5);
+    padding: 50px 50px 50px 50px;
+    border-radius: 30px;
+}
+
+.element{
+    height: 40px;
+    margin-left: 10px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#special-card{
+    background: transparent;
+    box-shadow: none;
+}

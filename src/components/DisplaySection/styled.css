@@ -124,7 +124,7 @@
         min-height: 90vh;
     }
 
-    #cards-section{
+    #cards-section, #city-picker-section{
         padding-left: calc((100vw - 1440px)/2);
         padding-right: calc((100vw - 1440px)/2);
     }
