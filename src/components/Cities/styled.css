@@ -1,15 +1,37 @@
+#cards-section{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: aliceblue;
+}
+
+#cards-section-title{
+    text-align: center;
+    font-size: clamp(14px, 2.2vw, 32px);
+}
+
+#cards-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .card-city{
-    font-size: 32px;
+    font-size: clamp(14px, 2.2vw, 32px);
     font-weight: 700;
 }
 
 .card-state{
-    font-size: 32px;
+    font-size: clamp(14px, 2.2vw, 32px);
     font-weight: 300;
 }
 
 .card{
-    background-color: #D5E1F4;
+    background-color: #004e7b;
+    background-image: linear-gradient(160deg, #080430 0%, #14294a 33%, #080430 75%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    /* background: linear-gradient(blue, #000); */
     /* width: 400px;
     min-width: 400px; */
     display: flex;
@@ -17,7 +39,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 28px;
-    padding: 40px 0;
+    padding: clamp(20px, 2.7vw, 40px) 0;
     /* background-image: url("Clear-night.png"); */
     background-size: cover;
     background-position: bottom;
@@ -32,17 +54,17 @@
 }
 
 .card-temperature{
-    font-size: 56px;
+    font-size: clamp(14px, 3.9vw, 56px);
     font-weight: 700;
 }
 
 .card-condition{
-    font-size: 32px;
+    font-size: clamp(14px, 1.9vw, 28px);
     font-weight: 400;
 }
 
 .card-max-min{
-    font-size: 24px;
+    font-size: clamp(14px, 1.7vw, 24px);
     font-weight: 300;
 }
 

@@ -110,7 +110,7 @@ export default function DisplaySection(props){
                     <div id="condition">{conditionToPT(props.brMainState["condition"]["main"])}</div>
                     <img id="image-condition" src={pic} alt="Ícone de tempo" />
                 </div>
-                <a id="more-cities-anchor" href="" className="content">{`Mais cidades em ${props.brMainState["abbr"]}`}</a>
+                <a id="more-cities-anchor" href="#cards-section" className="content">{`Mais cidades em ${props.brMainState["abbr"]}`}</a>
              </div>
         </section>
     )

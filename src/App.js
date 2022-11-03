@@ -4,6 +4,7 @@ import brStates from './brStates.json';
 import brCities from './brCities.json';
 import DisplaySection from './components/DisplaySection/DisplaySection.js';
 import Cities from './components/Cities/Cities.js';
+import CityPicker from './components/CityPicker/CityPicker';
 
 function App() {
   const [statesInfo, setStatesInfo] = useState(brStates);
@@ -15,19 +16,9 @@ function App() {
   const [brMainCities, setBrMainCities] = useState([]);
   const [brState, setBrState] = useState("São Paulo");
   const [brCity, setBrCity] = useState("");
+  const [brCityData, setBrCityData] = useState({});
   const [day, setDay] = useState("");
   const [hour, setHour] = useState("");
-
-  const handleBrState = (event) => {
-    setBrState(event.target.value);
-    //console.log(brState);
-    console.log(statesInfo);
-  }
-
-  const handleBrCity = (event) => {
-    setBrCity(event.target.value);
-    console.log(brCity);
-  }
 
   return (
     <div>
@@ -47,19 +38,16 @@ function App() {
         setBrMainCities={setBrMainCities}
         citiesInfo={citiesInfo}
       />
-      <select onChange={handleBrState} value={brState}>
-        {brStates.map(state => {
-          return <option value={state.name}>{state.name}</option>
-        })}
-      </select>
-      <select onChange={handleBrCity} value={brCity}>
-        {brCities
-        .filter(city => city["state"] === brState)
-        .map(city => {
-          return <option value={city.name}>{city.name}</option>
-        })}
-      </select>
-      <br/>
+      <CityPicker 
+        statesInfo={statesInfo}
+        citiesInfo={citiesInfo}
+        brState={brState}
+        setBrState={setBrState}
+        brCity={brCity}
+        setBrCity={setBrCity}
+        brCityData={brCityData}
+        setBrCityData={setBrCityData}
+      />
     </div>
   );
 }
