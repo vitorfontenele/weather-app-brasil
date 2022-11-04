@@ -27,7 +27,7 @@ svg{
 }
 
 .regular{
-    fill:#74A892;
+    fill:#74A892 !important;
 }
 
 .warm{

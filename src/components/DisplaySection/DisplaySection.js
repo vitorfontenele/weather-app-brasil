@@ -95,6 +95,22 @@ export default function DisplaySection(props){
                     brMainState={props.brMainState}
                     setBrMainState={props.setBrMainState}
                 />
+                <div id="colors-group">
+                    <div id="colors-title">Temperatura nas capitais</div>
+                    <div id="colors">
+                        <div className="color-element el-1"></div>
+                        <div className="color-element el-2"></div>
+                        <div className="color-element el-3"></div>
+                        <div className="color-element el-4"></div>
+                        <div className="color-element el-5"></div>
+                    </div>
+                    <div id="temperatures">
+                        <div>5ºC</div>
+                        <div>15ºC</div>
+                        <div>25ºC</div>
+                        <div>35ºC</div>
+                    </div>
+                </div>
             </div>
             <div id="capital-info-container">
                 <div id="bg" style={{backgroundImage: `url(${props.brMainState["bgImageLink"]})`}}></div>

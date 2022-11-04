@@ -18,13 +18,64 @@
     font-size: clamp(14px, 1.7vw, 24px);
     color: black;
     background-color: white;
-    margin-bottom: 72px;
+    margin-bottom: 54px;
     border: 2px solid white;
     padding: clamp(6px, .8vw, 12px) clamp(16px, 2.2vw, 32px);
     border-radius: 32px;
     letter-spacing: .02em;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
 }
+
+#colors-group{
+    margin-top: 12px;
+    /* margin-right: 80px; */
+    border-radius: 10px;
+    padding: 5px 20px;
+    background-color: #D5E1F4;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
+    /* align-self: flex-end; */
+    font-size: clamp(12px, 1.1vw, 16px);
+}
+
+#colors-title{
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+#colors{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: clamp(150px, 17.3vw, 250px);
+    /* width: minmax(150px, 250px); */
+    height: 10px;
+}
+
+.el-1{
+    background-color: #10375A;
+}
+
+.el-2{
+    background-color: #007B7B;
+}
+
+.el-3{
+    background-color: #74A892;
+}
+
+.el-4{
+    background-color: #E5C185;
+}
+
+.el-5{
+    background-color: #C7522A;
+}
+
+#temperatures{
+    padding-left: 4%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 
 #bg{
     position: absolute;
