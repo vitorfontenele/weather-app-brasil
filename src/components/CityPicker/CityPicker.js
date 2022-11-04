@@ -24,13 +24,42 @@ export default function CityPicker(props){
         } catch {
             console.log("Erro ao mostrar condições em cidade.");
         }
-        // console.log(data);
+        const bgImageLink = setBgImageLink(data["list"][0]["weather"][0]);
+        data["list"][0]["bgImageLink"] = bgImageLink;
         // props.setBrCity(event.target.value);
         props.setBrCityData({...data["list"][0]})
     }  
+
+    const setBgImageLink = (conditionObject) => {
+        // let bgImageLink = "";
+        console.log(conditionObject);
+        const atmosphereConditions = ["Mist", "Smoke", "Haze", "Dust", "Fog", "Sand", "Ash", "Squall", "Tornado"];
+        const mainCondition = conditionObject["main"];
+        const icon = conditionObject["icon"];
+  
+        if (mainCondition === "Clear") {
+            if (icon.includes("d")) {
+                return `/img/${mainCondition}-day.png`;
+            } else {
+                return `/img/${mainCondition}-night.png`;
+            }
+        } else if (mainCondition === "Clouds") {
+            if (icon.includes("d")) {
+                return `/img/${mainCondition}-day.png`;
+            } else {
+                return `/img/${mainCondition}-night.png`;
+            }
+        } else if (atmosphereConditions.includes(mainCondition)) {
+            return `/img/Atmosphere.png`;
+        } else {
+            return `/img/${mainCondition}.png`;
+        }
+  
+        // props.setBrMainState({...props.stateInfo, bgImageLink});
+      }
     
     return (
-        <section id="city-picker-section">
+        <section id="city-picker-section" style={{backgroundImage: `url(${props.brCityData["bgImageLink"]})`}}>
             <div id="city-picker-content">
                 <h2 id="city-picker-title">Escolha uma cidade de qualquer estado</h2>
                 <select className="element" onChange={handleBrState} value={props.brState}>
