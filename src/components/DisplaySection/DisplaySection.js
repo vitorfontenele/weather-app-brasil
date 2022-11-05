@@ -87,6 +87,8 @@ export default function DisplaySection(props){
 
     return (
         <section id="display-section">
+            <div id="bg" style={{backgroundImage: `url(${props.brMainState["bgImageLink"]})`}}></div>
+            <div id="bg2"/>
             <div id="brazil-map-container">
                 <div id="map-label">Clique em um estado</div>
                 <BrazilMap
@@ -113,7 +115,7 @@ export default function DisplaySection(props){
                 </div>
             </div>
             <div id="capital-info-container">
-                <div id="bg" style={{backgroundImage: `url(${props.brMainState["bgImageLink"]})`}}></div>
+                {/* <div id="bg" style={{backgroundImage: `url(${props.brMainState["bgImageLink"]})`}}></div> */}
                 {/* <img src={"/assets/Rain.png"} alt='Apagar!'/> */}
                 <div id="time" className="content">{props.hour}</div>
                     <div id="location-group" className="content">

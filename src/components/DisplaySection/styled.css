@@ -1,8 +1,20 @@
 #display-section{
     display: flex;
     /* background: conic-gradient(from 180deg at 31% 45.56%, #122115 0deg, #0F406D 360deg); */
-    background: linear-gradient(90deg, #080430 31%, #D5E1F4 31%);;
+    /* background: linear-gradient(90deg, #080430 31%, #D5E1F4 31%); */
     padding-left: 4%;
+    position: relative;
+    z-index: 1;
+}
+
+#bg2{
+    background: linear-gradient(90deg, #080430 31%, transparent 31%);
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 #brazil-map-container{
@@ -12,6 +24,8 @@
     align-items: center;
     padding-top: 36px;
     padding-bottom: 72px;
+    position: relative;
+    z-index: 1;
 }
 
 #map-label{
@@ -78,17 +92,31 @@
 
 
 #bg{
+    /* position: absolute; */
+    /* background-image: url("../../assets/Clouds-day.png"); */
+    /* background-size: cover; */
+    /* filter: saturate(1.3); */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* top: 0; */
+    /* left: 0; */
+    /* opacity: 0.8; */
+    /* border-radius: 40px; */
+    /* z-index: 1; */
+}
+
+#bg{
     position: absolute;
     /* background-image: url("../../assets/Clouds-day.png"); */
     background-size: cover;
+    background-position: bottom;
     filter: saturate(1.3);
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    opacity: 0.8;
-    border-radius: 40px;
-    z-index: 1;
+    /* border-radius: 40px; */
+    z-index: 0;
 }
 
 .content{
@@ -97,6 +125,7 @@
 }
 
 #capital-info-container{
+    background-color:rgba(1, 0, 8, 0);
     position: relative;
     width: calc(1440px - 894px);
     padding: 4.1vw;
@@ -111,7 +140,7 @@
 
 #capital-info-container{
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    color: white;
+    color: #ffffff;
 }
 
 #day{
@@ -137,7 +166,7 @@
 
 #weather-group{
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.3);
+    /* background-color: rgba(255, 255, 255, 0.3); */
     border-radius: 20px;
     padding: 10px 50px 5px 50px
 }
@@ -169,10 +198,14 @@
 @media (min-width: 1440px){
     #display-section{
         display: flex;
-        /* background: conic-gradient(from 180deg at calc(395px + (100vw - 1440px)/2) 0%,  */
-        background: linear-gradient(90deg, #080430 calc(395px + (100vw - 1440px)/2), #D5E1F4 calc(395px + (100vw - 1440px)/2));
+        /* background: red; */
+        
         padding-left: calc((100vw - 1440px)/2);
         min-height: 90vh;
+    }
+
+    #bg2{
+        background: linear-gradient(90deg, #080430 calc(395px + (100vw - 1440px)/2), transparent calc(395px + (100vw - 1440px)/2));
     }
 
     #cards-section, #city-picker-section{
