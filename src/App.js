@@ -14,7 +14,7 @@ function App() {
                                                   "capital": "São Paulo",
                                                   "abbr": "SP"});
   const [brMainCities, setBrMainCities] = useState([]);
-  const [brState, setBrState] = useState("São Paulo");
+  const [brState, setBrState] = useState("");
   const [brCity, setBrCity] = useState("");
   const [brCityData, setBrCityData] = useState({});
   const [day, setDay] = useState("");
