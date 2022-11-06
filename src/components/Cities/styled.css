@@ -18,7 +18,7 @@
 }
 
 .card-city{
-    font-size: clamp(14px, 2.2vw, 32px);
+    font-size: clamp(14px, 1.9vw, 28px);
     font-weight: 700;
 }
 
@@ -54,22 +54,40 @@
 }
 
 .card-temperature{
-    font-size: clamp(14px, 3.9vw, 56px);
+    font-size: clamp(14px, 3.3vw, 48px);
     font-weight: 700;
 }
 
 .card-condition{
-    font-size: clamp(14px, 1.9vw, 28px);
+    font-size: clamp(14px, 1.7vw, 24px);
     font-weight: 400;
 }
 
 .card-max-min{
-    font-size: clamp(14px, 1.7vw, 24px);
+    font-size: clamp(14px, 1.4vw, 20px);
     font-weight: 300;
 }
 
 .card-image{
-    width: 120px;
+    width: clamp(60px, 8.3vw,120px);
     /* height: 140px;
     object-fit: cover; */
+}
+
+@media (max-width: 1440px){
+    #cards-section{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 600px){
+    #cards-section{
+        padding-left: 20px;
+        padding-right: 20px;  
+    }
+
+    #cards-grid{
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));;
+    }
 }

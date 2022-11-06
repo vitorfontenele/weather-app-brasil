@@ -64,23 +64,23 @@ export default function CityPicker(props){
         <section id="city-picker-section" style={{backgroundImage: `url(${props.brCityData["bgImageLink"]})`}}>
             <div id="city-picker-content">
                 <h2 id="city-picker-title">Escolha uma cidade de qualquer estado</h2>
-                <select className="element" onChange={handleBrState} value={props.brState}>
+                <select id='select-state' className="element" onChange={handleBrState} value={props.brState}>
                     <option value={""}>--Estado--</option>
                     {props.statesInfo
                             .sort((a, b) => 
                                 (a["name"] < b["name"]) ? -1 : 1
                             )
                             .map(state => {
-                        return <option value={state.name}>{state.name}</option>
+                        return <option key={state.name} value={state.name}>{state.name}</option>
                     })}
                 </select>
-                <select className="element" onChange={handleBrCity} value={props.brCity}>
+                <select id='select-city' className="element" onChange={handleBrCity} value={props.brCity}>
                     <option value={""}>--Cidade--</option>
                     {props.citiesInfo
                     .filter(city => city["state"] === props.brState)
                     .sort((a, b) => a["name"] < b["name"] ? -1 : 1)
                     .map(city => {
-                        return <option value={city.name}>{city.name}</option>
+                        return <option key={city.id} value={city.name}>{city.name}</option>
                     })}
                 </select>
                 <button className="element" onClick={handleClick}>Ver dados</button>

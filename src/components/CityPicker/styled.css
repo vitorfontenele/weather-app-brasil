@@ -1,10 +1,9 @@
 #city-picker-section{
-    min-height: 50vh;
+    height: 628px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: rgba(14, 8, 86, 0.5); */
-    background-image: url("../../../public/img/Atmosphere.png");
+    background-color: rgba(14, 8, 86, 0.5);
     background-size: cover;
     background-repeat: no-repeat;
     padding-top: 100px;
@@ -15,23 +14,47 @@
     margin-bottom: 10px;
     text-align: center;
     color: white;
+    font-size: clamp(18px, 1.7vw, 28px);
 }
 
 #city-picker-content{
     background-color:rgba(14, 8, 86, 0.5);
-    padding: 50px 50px 50px 50px;
+    padding: clamp(25px, 3.5vw, 50px);
     border-radius: 30px;
+    width: 80%;
+    text-align: center;
+}
+
+#select-state{
+    width: 170px;
+}
+
+#select-city{
+    width: 300px;
 }
 
 .element{
     height: 40px;
-    margin-left: 10px;
     border-radius: 5px;
-    padding-left: 10px;
+    padding-left: clamp(5px, .7vw, 10px);
     padding-right: 10px;
 }
 
 #special-card{
     background: transparent;
     box-shadow: none;
+}
+
+@media (max-width: 870px){
+    #select-state, #select-city{
+        width: 100%;
+    }
+
+    #city-picker-content{
+        padding-top: clamp(25px, 6vw, 52px);
+    }
+
+    .element{
+        margin-bottom: 10px;
+    }
 }

@@ -213,3 +213,40 @@
         padding-right: calc((100vw - 1440px)/2);
     }
 }
+
+@media (max-width: 600px){
+    #display-section{
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 20px;
+    }
+
+    #brazil-map-container{
+        background-color:rgba(1, 0, 8, 0);
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
+        border-radius: 40px;
+    }
+
+    #bg{
+        background-position: bottom center;
+    }
+
+    #bg2{
+        background: transparent;
+    }   
+
+    #state-capital{
+        font-size: 18px;
+    }
+
+    #capital-info-container{
+        height: 400px;
+        background-color: transparent;
+        box-shadow: none;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

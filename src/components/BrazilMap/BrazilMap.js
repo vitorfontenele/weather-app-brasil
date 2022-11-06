@@ -93,7 +93,7 @@ export default function BrazilMap(props){
           }
         })
         props.setStatesInfo([...generalInfo]);
-        props.setBrMainState({...props.statesInfo[22]});
+        props.setBrMainState({...props.statesInfo[25]});
       }
       paintMap();
     }, [])
@@ -119,6 +119,7 @@ export default function BrazilMap(props){
         {props.statesInfo.map((state) => {
           return <BrState 
                     id={state["pathId"]} 
+                    key={state["pathId"]}
                     classes={`state str0 ${state["colorClass"]}`}
                     d={statepaths[state["name"]]}
                     stateInfo={{...state}}

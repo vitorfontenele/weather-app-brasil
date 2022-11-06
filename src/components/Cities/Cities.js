@@ -25,7 +25,7 @@ export default function Cities(props){
             }
             
             data["list"].map(city => {city["stateAbbr"] = props.brMainState["abbr"]});
-            console.log(data["list"]);
+            //console.log(data["list"]);
             props.setBrMainCities([...data["list"]]);
         }
         renderCities();
@@ -71,7 +71,7 @@ export default function Cities(props){
             <div id="cards-grid">
             {props.brMainCities.map(city => {
                 return (
-                    <div className="card">
+                    <div key={city.id} className="card">
                         <h3 className="card-city">{city["name"]} <span className="card-state">{city["stateAbbr"]}</span></h3>
                         <div className="card-info">
                             <div className="card-image-info">
