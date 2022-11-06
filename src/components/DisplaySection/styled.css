@@ -242,15 +242,21 @@
     }   
 
     #state-capital{
-        font-size: 18px;
+        font-size: 24px;
+    }
+
+    #temperature{
+        font-size: 36px;
     }
 
     #capital-info-container{
-        height: 400px;
+        height: 500px;
         background-color: transparent;
         box-shadow: none;
         width: 100%;
         padding-left: 0;
         padding-right: 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
 }
