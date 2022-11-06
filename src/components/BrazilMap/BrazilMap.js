@@ -76,6 +76,7 @@ export default function BrazilMap(props){
         fullData.map((element, index) => {
           let temperature = KelvinToCelsius(element["main"]["temp"]);
           generalInfo[index]["temperature"] = Math.round(temperature);
+          generalInfo[index]["humidity"] = element["main"]["humidity"];
           generalInfo[index]["condition"] = element["weather"][0];
           generalInfo[index]["bgImageLink"] = setBgImageLink(element["weather"][0]);
           //console.log(element["weather"][0])

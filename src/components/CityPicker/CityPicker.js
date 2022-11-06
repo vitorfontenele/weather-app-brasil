@@ -28,8 +28,11 @@ export default function CityPicker(props){
         const bgImageLink = setBgImageLink(data["list"][0]["weather"][0]);
         data["list"][0]["bgImageLink"] = bgImageLink;
         // props.setBrCity(event.target.value);
+        const stateAbbr = props.statesInfo.filter(state => state["name"] === props.brState)[0]['abbr'];
+        data["list"][0]["stateAbbr"] = stateAbbr;
         props.setBrCityData({...data["list"][0]})
-
+        console.log(props.statesInfo);
+        
     }  
 
     const setBgImageLink = (conditionObject) => {
@@ -56,7 +59,7 @@ export default function CityPicker(props){
         } else {
             return `/img/${mainCondition}.png`;
         }
-  
+        
         // props.setBrMainState({...props.stateInfo, bgImageLink});
       }
     
