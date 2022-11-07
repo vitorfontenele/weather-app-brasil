@@ -1,4 +1,3 @@
-import './App.css';
 import {useState} from 'react';
 import brStates from './brStates.json';
 import brCities from './brCities.json';

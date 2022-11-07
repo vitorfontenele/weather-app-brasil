@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../BrazilMap/BrazilMap.js";
 import BrazilMap from "../BrazilMap/BrazilMap.js";
-import './styled.css'
+import './style.css'
 
 export default function DisplaySection(props){
     const conditionToPT = (condition) => {

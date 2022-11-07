@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import "./styled.css";
+import "./style.css";
 import BrState from "../BrazilStates/BrState";
 import statepaths from "../BrazilStates/statepaths.json";
 
@@ -13,20 +13,20 @@ export default function BrazilMap(props){
 
       if (mainCondition === "Clear") {
           if (icon.includes("d")) {
-              return `/assets/${mainCondition}-day.png`;
+              return `/img-display/${mainCondition}-day.png`;
           } else {
-              return `/assets/${mainCondition}-night.png`;
+              return `/img-display/${mainCondition}-night.png`;
           }
       } else if (mainCondition === "Clouds") {
           if (icon.includes("d")) {
-              return `/assets/${mainCondition}-day.png`;
+              return `/img-display/${mainCondition}-day.png`;
           } else {
-              return `/assets/${mainCondition}-night.png`;
+              return `/img-display/${mainCondition}-night.png`;
           }
       } else if (atmosphereConditions.includes(mainCondition)) {
-          return `/assets/Atmosphere.png`;
+          return `/img-display/Atmosphere.png`;
       } else {
-          return `/assets/${mainCondition}.png`;
+          return `/img-display/${mainCondition}.png`;
       }
 
       // props.setBrMainState({...props.stateInfo, bgImageLink});
@@ -55,8 +55,8 @@ export default function BrazilMap(props){
         queryIds2 = queryIds2.slice(0, -1);
 
         //URL for each query
-        const url1 = `http://api.openweathermap.org/data/2.5/group?id=${queryIds1}&units;=metric&appid=fe772bb5ff9d8486d890ff783f7fcf86`;
-        const url2 = `http://api.openweathermap.org/data/2.5/group?id=${queryIds2}&units;=metric&appid=fe772bb5ff9d8486d890ff783f7fcf86`;
+        const url1 = `https://api.openweathermap.org/data/2.5/group?id=${queryIds1}&units;=metric&appid=fe772bb5ff9d8486d890ff783f7fcf86`;
+        const url2 = `https://api.openweathermap.org/data/2.5/group?id=${queryIds2}&units;=metric&appid=fe772bb5ff9d8486d890ff783f7fcf86`;
 
         //Call Open Weather API
         let data1;

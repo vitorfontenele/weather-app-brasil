@@ -33,7 +33,7 @@ export default function City(props){
             <h3 className="card-city">{props.brCityData["name"]} <span className="card-state">{props.brCityData["stateAbbr"]}</span></h3>
             <div className="card-info">
                 <div className="card-image-info">
-                    <img className="card-image" src={`http://openweathermap.org/img/wn/${props.brCityData["weather"][0]["icon"]}@2x.png`} alt="" />
+                    <img className="card-image" src={`https://openweathermap.org/img/wn/${props.brCityData["weather"][0]["icon"]}@2x.png`} alt="" />
                 </div>
                 <div className="card-text-info">
                     <h4 className="card-temperature">{`${formatTemperature(props.brCityData["main"]["temp"])}ºC`}</h4>

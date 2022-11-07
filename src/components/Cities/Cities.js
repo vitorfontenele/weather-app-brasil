@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./styled.css";
+import "./style.css";
 
 export default function Cities(props){
     useEffect(() => {
@@ -17,7 +17,7 @@ export default function Cities(props){
 
             let data;
             try {
-                const url = `http://api.openweathermap.org/data/2.5/group?id=${queryIds}&units;=metric&appid=fe772bb5ff9d8486d890ff783f7fcf86`;
+                const url = `https://api.openweathermap.org/data/2.5/group?id=${queryIds}&units;=metric&appid=fe772bb5ff9d8486d890ff783f7fcf86`;
                 const response = await fetch(url);
                 data = await response.json();
             } catch {
@@ -75,7 +75,7 @@ export default function Cities(props){
                         <h3 className="card-city">{city["name"]} <span className="card-state">{city["stateAbbr"]}</span></h3>
                         <div className="card-info">
                             <div className="card-image-info">
-                                <img className="card-image" src={`http://openweathermap.org/img/wn/${city["weather"][0]["icon"]}@2x.png`} alt="" />
+                                <img className="card-image" src={`https://openweathermap.org/img/wn/${city["weather"][0]["icon"]}@2x.png`} alt="" />
                             </div>
                             <div className="card-text-info">
                                 <h4 className="card-temperature">{`${formatTemperature(city["main"]["temp"])}ºC`}</h4>

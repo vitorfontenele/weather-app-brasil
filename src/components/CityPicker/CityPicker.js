@@ -1,6 +1,6 @@
 import React from 'react';
 import City from '../City/City';
-import './styled.css';
+import './style.css';
 
 export default function CityPicker(props){
     const handleBrState = (event) => {
@@ -17,7 +17,7 @@ export default function CityPicker(props){
             .filter(city => city["name"] === props.brCity);
         if (cityData.length < 1){return ;}
         const queryId = cityData[0]["id"];
-        const url = `http://api.openweathermap.org/data/2.5/group?id=${queryId}&units;=metric&appid=fe772bb5ff9d8486d890ff783f7fcf86`;
+        const url = `https://api.openweathermap.org/data/2.5/group?id=${queryId}&units;=metric&appid=fe772bb5ff9d8486d890ff783f7fcf86`;
         let data;
         try {
             const response = await fetch(url);
@@ -44,20 +44,20 @@ export default function CityPicker(props){
   
         if (mainCondition === "Clear") {
             if (icon.includes("d")) {
-                return `/img/${mainCondition}-day.png`;
+                return `/img-picker/${mainCondition}-day.png`;
             } else {
-                return `/img/${mainCondition}-night.png`;
+                return `/img-picker/${mainCondition}-night.png`;
             }
         } else if (mainCondition === "Clouds") {
             if (icon.includes("d")) {
-                return `/img/${mainCondition}-day.png`;
+                return `/img-picker/${mainCondition}-day.png`;
             } else {
-                return `/img/${mainCondition}-night.png`;
+                return `/img-picker/${mainCondition}-night.png`;
             }
         } else if (atmosphereConditions.includes(mainCondition)) {
-            return `/img/Atmosphere.png`;
+            return `/img-picker/Atmosphere.png`;
         } else {
-            return `/img/${mainCondition}.png`;
+            return `/img-picker/${mainCondition}.png`;
         }
         
         // props.setBrMainState({...props.stateInfo, bgImageLink});
