@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Sobre
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+App de condições meteorológicas em React JS, voltado para estados e cidades brasileiras. Utiliza as APIs do OpenWeather.
 
-## Available Scripts
+# APIs
 
-In the project directory, you can run:
+Foram utilizadas duas APIs disponibilizadas pelo OpenWeather: 
 
-### `npm start`
+* Current weather data
+* Geocoding API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Current weather data
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Permite que você acesse informações em tempo real de condições meteorológicas de mais de 200k cidades ao redor do mundo. Os dados estão disponíveis em formato JSON, XML ou HTML. 
 
-### `npm test`
+Para mais informações: [Current weather data](https://openweathermap.org/current)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Geocoding API
 
-### `npm run build`
+Permite converter coordenadas geográficas para nomes de localidades próximas (informando o nome de cidade e país, por exemplo).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para mais informações: [Geocoding API](https://openweathermap.org/api/geocoding-api)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Onde obter a lista das cidades brasileiras disponíveis na API do OpenWeather?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+O OpenWeather disponibiliza um arquivo que mostra as localidades disponíveis na plataforma. Esse arquivo pode ser acessado através do seguinte link:
 
-### `npm run eject`
+* [Index of /sample/](http://bulk.openweathermap.org/sample/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Uma vez acessado o link, você terá uma lista de arquivos disponíveis para download em formato .gz (compactados).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+O arquivo de interesse é o city.list.json.gz, que contém um JSON com as cidades disponíveis no OpenWeather.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+As cidades brasileiras são aquelas com atributo "country" igual a "BR".
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Observe que as cidades brasileiras possuem atributos "state" sem os seus respectivos valores. Para isso, você pode usar a API de Geocoding do próprio OpenWeather, que fornece os estados brasileiros das localidades disponíveis nesse arquivo JSON. 
 
-## Learn More
+# Extra
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Este projeto foi criado com [Create React App](https://github.com/facebook/create-react-app).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+No projeto, você pode usar o comando `npm start` que executa o app em modo de desenvolvimento.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Uma vez executado esse comando, abra [http://localhost:3000](http://localhost:3000) para vê-lo no seu navegador.
