@@ -21,7 +21,7 @@ Permite converter coordenadas geográficas para nomes de localidades próximas (
 
 Para mais informações: [Geocoding API](https://openweathermap.org/api/geocoding-api)
 
-# Onde obtive a lista das cidades brasileiras disponíveis nas APIs do OpenWeather?
+# Lista das cidades brasileiras disponíveis nas APIs do OpenWeather
 
 O OpenWeather disponibiliza um arquivo que mostra as localidades disponíveis na plataforma. Esse arquivo pode ser acessado através do seguinte link:
 
