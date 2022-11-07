@@ -27,9 +27,9 @@ O OpenWeather disponibiliza um arquivo que mostra as localidades disponíveis na
 
 * [Index of /sample/](http://bulk.openweathermap.org/sample/)
 
-Uma vez acessado o link, você terá uma lista de arquivos disponíveis para download em formato .gz (compactados).
+Uma vez acessado o link, você terá uma lista de arquivos disponíveis para download em formato `.gz` (compactados).
 
-O arquivo de interesse é o city.list.json.gz, que contém um JSON com as cidades disponíveis no OpenWeather.
+O arquivo de interesse é o `city.list.json.gz`, que contém um JSON com as cidades disponíveis no OpenWeather.
 
 As cidades brasileiras são aquelas com atributo "country" igual a "BR".
 
