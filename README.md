@@ -21,7 +21,7 @@ Permite converter coordenadas geográficas para nomes de localidades próximas (
 
 Para mais informações: [Geocoding API](https://openweathermap.org/api/geocoding-api)
 
-# Onde obter a lista das cidades brasileiras disponíveis na API do OpenWeather?
+# Onde obtive a lista das cidades brasileiras disponíveis nas APIs do OpenWeather?
 
 O OpenWeather disponibiliza um arquivo que mostra as localidades disponíveis na plataforma. Esse arquivo pode ser acessado através do seguinte link:
 
@@ -35,7 +35,9 @@ As cidades brasileiras são aquelas com atributo "country" igual a "BR".
 
 Observe que as cidades brasileiras possuem atributos "state" sem os seus respectivos valores. Para isso, você pode usar a API de Geocoding do próprio OpenWeather, que fornece os estados brasileiros das localidades disponíveis nesse arquivo JSON. 
 
-# Extra
+Com essas informações, é possível reconstruir o arquivo `./src/brCities.json` presente nesse repositório.
+
+# Create-React-App
 
 Este projeto foi criado com [Create React App](https://github.com/facebook/create-react-app).
 
