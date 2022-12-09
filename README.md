@@ -1,46 +1,144 @@
-# Sobre
+<a name="readme-top"></a>
 
-App de condições meteorológicas em React JS, voltado para estados e cidades brasileiras. Utiliza as APIs do OpenWeather.
+<div align="center">
+  <a href="https://github.com/vitorfontenele/weather-app-brasil">
+    <img src="public/weather-app-brasil.jpg" alt="Weather App Brasil">
+  </a>
+  <h3 align="center">weather-app-brasil</h3>
+  <a href="https://vitorfontenele.github.io/weather-app-brasil-build/">https://vitorfontenele.github.io/weather-app-brasil-build/</a>
+</div>
 
-# APIs
+<!-- Conteúdo -->
+<details>
+  <summary>Conteúdo</summary>
+  <ol>
+    <li>
+      <a href="#sobre-o-projeto">Sobre o projeto</a>
+      <ul>
+        <li><a href="#feito-com">Feito com</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#instalação">Instalação</a>
+    </li>
+    <li><a href="#utilização">Utilização</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contribuindo">Contribuindo</a></li>
+    <li><a href="#licença">Licença</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="#contribuições">Contribuições</a></li>
+  </ol>
+</details>
 
-Foram utilizadas duas APIs disponibilizadas pelo OpenWeather: 
 
-* Current weather data
-* Geocoding API
+<!-- SOBRE O PROJETO -->
+## Sobre o projeto
 
-## Current weather data
+O Weather App Brasil é uma aplicação que permite observar as condições meteorológicas nos estados e cidades brasileiras. Pode-se ter uma visão geral por estado ou, se desejado, de uma cidade específica do país. 
 
-Permite que você acesse informações em tempo real de condições meteorológicas de mais de 200k cidades ao redor do mundo. Os dados estão disponíveis em formato JSON, XML ou HTML. 
+O projeto foi desenvolvido com as APIs de uso gratuito do [OpenWeather](openweathermap.org).
 
-Para mais informações: [Current weather data](https://openweathermap.org/current)
+Este repositório foi o utilizado para desenvolver o projeto - posteriormente foi criado um repositório para o deploy. O repositório de deploy encontra-se neste [link](https://github.com/vitorfontenele/weather-app-brasil-build).
 
-## Geocoding API
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
-Permite converter coordenadas geográficas para nomes de localidades próximas (informando o nome de cidade e país, por exemplo).
+### Feito com
 
-Para mais informações: [Geocoding API](https://openweathermap.org/api/geocoding-api)
 
-# Lista das cidades brasileiras disponíveis nas APIs do OpenWeather
+* [![React][React.js]][React-url]
 
-O OpenWeather disponibiliza um arquivo que mostra as localidades disponíveis na plataforma. Esse arquivo pode ser acessado através do seguinte link:
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
-* [Index of /sample/](http://bulk.openweathermap.org/sample/)
 
-Uma vez acessado o link, você terá uma lista de arquivos disponíveis para download em formato `.gz` (compactados).
 
-O arquivo de interesse é o `city.list.json.gz`, que contém um JSON com as cidades disponíveis no OpenWeather.
+<!-- INSTALAÇÃO -->
+## Instalação
 
-As cidades brasileiras são aquelas com atributo "country" igual a "BR".
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/vitorfontenele/weather-app-brasil.git
+   ```
+2. Instale os pacotes NPM:
+   ```sh
+   npm install
+   ```
+3. Para executar a aplicação em modo de desenvolvimento:
+   ```sh
+   npm start
+   ```
 
-Observe que as cidades brasileiras possuem atributos "state" sem os seus respectivos valores. Para isso, você pode usar a API de Geocoding do próprio OpenWeather, que fornece os estados brasileiros das localidades disponíveis nesse arquivo JSON. 
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
-Com essas informações, é possível reconstruir o arquivo `./src/brCities.json` presente nesse repositório.
+<!-- UTILIZAÇÃO -->
+## Utilização
 
-# Create-React-App
+A primeira seção da aplicação contém um mapa clicável do Brasil, em que a cor de cada estado é representada pela temperatura de sua capital. Uma vez clicando-se em um dos estados, mostra-se as condições meteorológicas na capital e, abaixo, são listadas as condições meteorológicas em doze cidades aleatórias do estado (observe que alguns estados possuem menos de 12 cidades disponíveis na base de dados do [OpenWeather](openweathermap.org)).
 
-Este projeto foi criado com [Create React App](https://github.com/facebook/create-react-app).
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
-No projeto, você pode usar o comando `npm start` que executa o app em modo de desenvolvimento.
+<!-- ROADMAP -->
+## Roadmap
 
-Uma vez executado esse comando, abra [http://localhost:3000](http://localhost:3000) para vê-lo no seu navegador.
+- [x] Construção do layout da seção principal (a que contém o mapa do Brasil) no Figma
+- [x] Adequação dos arquivos SVG do mapa do Brasil para o JSX do React 
+- [x] Construção de um JSON com as cidades brasileiras disponíveis no [OpenWeather](openweathermap.org)
+- [x] Desenvolvimento do código em React
+- [x] Deploy do projeto no Github Pages
+
+Veja [open issues](https://github.com/vitorfontenele/weather-app-brasil/issues) para modificações propostas (e issues conhecidos).
+
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
+
+<!-- CONTRIBUINDO -->
+## Contribuindo
+
+Contribuições são o que tornam a comunidade open-source um lugar incrível de aprendizado, inspiração e criação. Quaisquer contribuições serão muito apreciadas.
+
+Se você tiver sugestões que melhorariam este projeto, por favor faça um fork do repositório e crie um pull request. Você também pode simplesmente abrir um issue com a tag "enhancement".
+Não se esqueça de dar uma estrela para o projeto! Mais uma vez, obrigado!
+
+1. Faça um Fork do Projeto
+2. Crie uma branch para as modificações que você deseja propor (`git checkout -b feature/mudanca-incrivel`)
+3. Faça um Commit das suas alterações (`git commit -m 'Adicionar uma mudança incrível'`)
+4. Faça um Push para a Branch que você criou (`git push origin feature/mudanca-incrivel`)
+5. Abra um Pull Request
+
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
+
+<!-- LICENSE -->
+## Licença
+
+Distribuído sob a MIT License. Veja `LICENSE.txt` para mais informações.
+
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
+
+<!-- CONTATO -->
+## Contato
+
+[![Github][github-shield]][github-url][![Linkedin][linkedin-shield]][linkedin-url]
+
+Link do Projeto: [https://github.com/vitorfontenele/weather-app-brasil](https://github.com/vitorfontenele/weather-app-brasil)
+
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
+
+<!-- CONTRIBUIÇÕES -->
+## Contribuições
+
+* [Create React App](https://create-react-app.dev/)
+* [GitHub Pages](https://pages.github.com)
+* [Wikipédia](https://pt.m.wikipedia.org/)
+* [SVGR Playground](https://react-svgr.com/playground/)
+* [OpenWeather Geocoding API](https://openweathermap.org/api/geocoding-api#reverse)
+* [OpenWeather Current Weather API](https://openweathermap.org/current)
+
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[linkedin-shield]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
+[linkedin-url]: https://www.linkedin.com/in/vitor-fontenele/
+[github-shield]: https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white
+[github-url]: https://github.com/vitorfontenele
